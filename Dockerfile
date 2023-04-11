@@ -2,8 +2,11 @@ FROM ubuntu:latest
 
 RUN apt-get -y update && apt-get install -y
 RUN apt-get -y install g++ cmake
+RUN apt-get -y install git
 
 COPY . .
+
+RUN git submodule update --init --recursive
 
 RUN mkdir build
 
